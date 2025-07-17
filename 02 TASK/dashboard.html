@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <h1 id="userInfo">Dashboard</h1>
+
+    <div>
+      <form id="dashForm">
+        <input type="text" name="dash-name" placeholder="Name" required />
+        <input type="email" name="dash-email" placeholder="Email" required />
+        <input
+          type="text"
+          name="dash-department"
+          placeholder="Department"
+          required
+        />
+        <button type="submit">ADD user</button>
+      </form>
+
+      <h3>Sub-user list:</h3>
+      <ul id="list"></ul>
+    </div>
+
+    <!--  Add jwt-decode library -->
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+
+    <script>
+      // token from localStorage
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        alert("Login first");
+        window.location.href = "login.html";
+      }
+
+      //  Decode  token
+      const decoded = jwt_decode(token); // { email, name }
+      const currUserEmail = decoded.email;
+
+      let editingIndex = null;
+
+      function getUser() {
+        return JSON.parse(localStorage.getItem("user_" + currUserEmail));
+      }
+
+      function saveUser(user) {
+        localStorage.setItem("user_" + currUserEmail, JSON.stringify(user));
+      }
+
+      function dashboard() {
+        const user = getUser();
+
+        const html = user.subUsers.reduce((acc, su, i) => {
+          return (
+            acc +
+            `<li>
+              ${su.name} (${su.email}) - ${su.department}
+              <button onclick="editSubUser(${i})">Edit</button>
+              <button onclick="deleteSubUser(${i})">Delete</button>
+            </li>`
+          );
+        }, "");
+
+        document.getElementById("list").innerHTML = html;
+      }
+
+      function deleteSubUser(index) {
+        const user = getUser();
+        user.subUsers.splice(index, 1);
+        saveUser(user);
+        dashboard();
+      }
+
+      function editSubUser(index) {
+        const user = getUser();
+        const su = user.subUsers[index];
+        const form = document.getElementById("dashForm");
+        form["dash-name"].value = su.name;
+        form["dash-email"].value = su.email;
+        form["dash-department"].value = su.department;
+        editingIndex = index;
+      }
+
+      document
+        .getElementById("dashForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const form = document.getElementById("dashForm");
+          const name = form["dash-name"].value;
+          const email = form["dash-email"].value;
+          const department = form["dash-department"].value;
+
+          const newSubUser = { name, email, department };
+          const user = getUser();
+
+          if (editingIndex !== null) {
+            user.subUsers[editingIndex] = newSubUser;
+            editingIndex = null;
+          } else {
+            user.subUsers.push(newSubUser);
+          }
+
+          saveUser(user);
+          dashboard();
+          form.reset();
+        });
+
+      dashboard();
+    </script>
+  </body>
+</html>

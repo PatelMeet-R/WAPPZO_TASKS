@@ -1,0 +1,428 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+.hero-section img,
+.venue-image img {
+  height: 80%;
+  width: 100%;
+}
+.Upword {
+  text-transform: uppercase;
+}
+.Capword {
+  text-transform: capitalize;
+}
+nav {
+  background-color: black;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  font-size: large;
+}
+nav a {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 10px 20px;
+}
+nav select {
+  background-color: black;
+  color: #fff;
+}
+/*  */
+.hero-section div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero-section div h4 {
+  color: #fff;
+  position: relative;
+  top: -9rem;
+  font-size: 24px;
+}
+.hero-section div p {
+  color: #fff;
+  position: relative;
+  top: -8rem;
+  font-size: 18px;
+}
+/*  */
+.description .desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0rem 12rem;
+}
+.description .person-image,
+.structure {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/* .person-image {
+  margin: 6.5rem 0 0 0;
+} */
+.person-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.person-image div {
+  text-align: center;
+}
+
+.person-image img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.description .person-image img {
+  height: 25rem;
+  width: 25rem;
+  border-radius: 6px;
+  margin: 1rem 4rem;
+}
+.description .person-image div strong {
+  margin: 0px 4rem;
+  font-size: 24px;
+}
+.description .desc-para {
+  font-size: 20px;
+}
+.desc i {
+  font-size: 20px;
+}
+.tour-details {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin: 1rem 0rem;
+}
+
+.tour-details .detail .caption {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards .place-profile {
+  border: #f4f5f6 1px solid;
+  margin: 1rem 1rem;
+  /* height: 28rem; */
+  width: 22rem;
+  background-color: white;
+  color: black;
+}
+
+.place-profile img {
+  height: 10rem;
+  /* width: 15rem; */
+  border-radius: 6px;
+  margin: 1rem;
+  border: 1px white solid;
+}
+.lightgray {
+  color: #3b3c3d;
+}
+.place-profile div h5,
+p,
+.profile-details {
+  text-align: start;
+  margin: 0rem 1rem;
+}
+.place-profile button {
+  color: white;
+  background-color: black;
+  padding: 1rem 1rem;
+  margin: 1.5rem 1rem;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+.table table {
+  margin: 2rem 0;
+  width: 100vh;
+}
+.table tr,
+td {
+  border-bottom: 1px solid white;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+.contact123 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#info {
+  display: flex;
+  margin: 2rem 0;
+}
+.fetch-info form input {
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+}
+.info-desc {
+  margin: 1rem 8rem 0 0;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+#info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 900px;
+}
+
+.info-desc {
+  flex: 1;
+  min-width: 250px;
+}
+
+.fetch-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.fetch-info form input,
+.fetch-info form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  box-sizing: border-box;
+}
+
+.fetch-info form button {
+  background-color: black;
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.description .desc {
+  text-align: center;
+  max-width: 900px;
+  margin: 1rem;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 300px;
+}
+
+.table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.table button {
+  background-color: crimson;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+@media (max-width: 768px) {
+  .person-image {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .structure,
+  .description .person-image {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .desc {
+    margin: 1rem;
+  }
+
+  .table table {
+    width: 100%;
+  }
+  nav select {
+    display: none;
+  }
+  nav {
+    width: 100%;
+  }
+  .description .person-image img {
+    height: 15rem;
+    width: 15rem;
+  }
+  #contact {
+    height: 100%;
+    width: 80%;
+  }
+  #info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-desc,
+  .fetch-info {
+    width: 100%;
+    margin: 0;
+  }
+
+  .fetch-info form button {
+    width: 100%;
+    text-align: center;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  .description .desc {
+    margin: 1rem;
+  }
+
+  .person-image {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .person-image img {
+    height: 160px;
+    width: 160px;
+  }
+  .table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 14px;
+  }
+
+  .table button {
+    padding: 0.4rem 0.8rem;
+    font-size: 14px;
+  }
+  .hero-section div h4 {
+    color: #fff;
+    position: relative;
+    top: -4.5rem;
+    font-size: 18px;
+  }
+  .hero-section div p {
+    color: #fff;
+    position: relative;
+    top: -4rem;
+    font-size: 10 px;
+  }
+  .description .desc-para {
+    font-size: 18px;
+  }
+  .description .person-image div strong {
+    font-size: 15px;
+  }
+  .desc i {
+    margin: 0.8rem 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .table td {
+    padding: 0.5rem 5.6rem;
+    font-size: 13px;
+  }
+
+  .table button {
+    padding: 0.3rem 0.7rem;
+    font-size: 13px;
+  }
+  .detail {
+    width: 100vw;
+  }
+  .table td {
+    padding: 12px;
+  }
+  .cards .place-profile {
+    border: #f4f5f6 1px solid;
+    /* margin: 1rem 7rem; */
+    width: 16rem;
+    background-color: white;
+    color: black;
+  }
+  nav {
+    font-size: 12px;
+  }
+  .description .person-image img {
+    margin: 0;
+  }
+  .hero-section div p,
+  .hero-section div h4 {
+    top: -3.4rem;
+
+    font-size: 10px;
+  }
+}
+@media (max-width: 1024px) {
+  .detail {
+    width: 100vw;
+  }
+  .person-image {
+    flex-wrap: nowrap;
+  }
+  .description .person-image img {
+    height: 13rem;
+    width: 12rem;
+    margin: 1rem 2rem;
+    overflow: hidden;
+  }
+}
+.icons i {
+  font-size: 25px;
+  margin-bottom: 0.5rem;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+.desc i {
+  margin: 1rem;
+}

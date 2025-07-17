@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input name="email" type="email" placeholder="Email" required /><br />
+      <input
+        name="password"
+        type="password"
+        placeholder="Password"
+        required
+      /><br />
+      <button type="submit">Login</button>
+    </form>
+
+    <script>
+      function GetJWT(payload) {
+        const header = btoa('{"alg":"HS256","typ":"JWT"}');
+        const body = btoa(JSON.stringify(payload));
+        return `${header}.${body}.signature`;
+      }
+
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = this.email.value.trim().toLowerCase();
+          const password = this.password.value;
+
+          const userData = localStorage.getItem("user_" + email);
+          if (!userData) return alert("Invalid email or password");
+
+          const user = JSON.parse(userData);
+          if (user.password !== password) return alert("Invalid password");
+
+          //  Store token 
+          const token = GetJWT({ email: user.email, name: user.name });
+          localStorage.setItem("token", token);
+
+          alert("Login successful!");
+          window.location.href = "dashboard.html";
+        });
+    </script>
+  </body>
+</html>

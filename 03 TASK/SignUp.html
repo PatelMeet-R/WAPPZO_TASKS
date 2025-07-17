@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signUp</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+
+      form {
+        max-width: 320px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 6px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-bottom: 15px;
+        font-size: 14px;
+      }
+
+      input {
+        padding: 8px;
+        font-size: 14px;
+        margin-top: 4px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #1976d2;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #135ba1;
+      }
+
+      .warning {
+        text-align: center;
+        color: red;
+        margin-top: 15px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="signupForm" method="post">
+      <label>
+        Name:
+        <input type="text" name="name" placeholder="Name" required /> </label
+      ><br />
+      <label>
+        Email:
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter Email"
+          required
+        /> </label
+      ><br />
+      <label>
+        Password:
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+      </label>
+      <br />
+      <button type="submit">Sign Up</button>
+    </form>
+    <h1 class="warning"></h1>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.10.0/axios.min.js"
+      integrity="sha512-WkZrEcQ5LMyNy6Y2PQf+Tu3vMcsmKKRKuPXtJSTHQJ3mpuvLRlA5dlDDhrrcXfyWr6Z/y3wIMfjfqVFO/gDZYQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="Signup.js"></script>
+  </body>
+</html>

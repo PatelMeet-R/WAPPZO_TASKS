@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title></head
+  ><style>
+    table {
+      width: 100%;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    thead {
+      color: white;
+    }
+
+    th,
+    td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 768px) {
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #fafafa;
+      }
+
+      td {
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+      }
+    }
+    input {
+      margin: 1rem;
+    }
+  </style>
+
+  <body>
+    <nav>
+      <form
+        method="get"
+        class="log-btn"
+        style="display: flex; justify-content: end; margin: 1rem 5rem 0 0"
+      >
+        <button type="submit" style="background-color: red; color: #ccc">
+          Logout
+        </button>
+      </form>
+    </nav>
+    <hr />
+    <hr />
+    <form
+      class="Dashboard"
+      method="post"
+      style="display: flex; justify-content: center"
+    >
+      <label>Name :<input type="text" class="DashName" name="name" /></label>
+      <label
+        >Email :<input type="email" class="DashEmail" name="email"
+      /></label>
+      <label
+        >Department :<input
+          type="text"
+          class="DashDepartment"
+          name="department"
+        />
+      </label>
+      <button type="submit" class="btn">Add subUser</button>
+    </form>
+
+    <hr />
+    <hr />
+    <section
+      style="display: flex; justify-content: center; align-content: center"
+    >
+      <div class="DisplayUserData" style="width: 500px; height: 500px">
+        <table style="border: 1px solid black">
+          <thead>
+            <tr></tr>
+          </thead>
+          <tbody id="userTableBody">
+            <tr>
+              <td>temp data</td>
+              <td>tempmail@9090</td>
+              <td>Comp techno</td>
+              <td><button>Delete</button></td>
+              <td><button>Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.10.0/axios.min.js"
+      integrity="sha512-WkZrEcQ5LMyNy6Y2PQf+Tu3vMcsmKKRKuPXtJSTHQJ3mpuvLRlA5dlDDhrrcXfyWr6Z/y3wIMfjfqVFO/gDZYQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="Dashboard.js"></script>
+  </body>
+</html>
