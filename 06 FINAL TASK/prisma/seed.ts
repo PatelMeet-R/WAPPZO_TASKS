@@ -1,14 +1,22 @@
 import { PrismaClient } from "../generated/prisma";
+import bcyptjs from "bcryptjs";
+
 const prisma = new PrismaClient();
+
 async function main() {
+  const hashPass = await bcyptjs.hash("123", 10);
   const ADMIN = await prisma.user.upsert({
     where: { email: "admin@123" },
-    update: {},
+    update: {
+      department: "Management",
+      role: "USER",
+    },
     create: {
       email: "admin@123",
       name: "admin",
       department: "Management",
-      role: "ADMIN",
+      role: "USER",
+      password: hashPass,
       logStatus: "accepted",
     },
   });
@@ -24,4 +32,4 @@ main()
     await prisma.$disconnect();
     process.exit(1);
   });
-// password :admin123
+
